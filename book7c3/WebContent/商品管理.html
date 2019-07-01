@@ -1,0 +1,489 @@
+<HTML>
+<HEAD>
+	<meta http-equiv="Content-Language" content="zh-cn">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link href="home/css/Style.css" rel="stylesheet" type="text/css" />
+	<script language="javascript" src="home/js/public.js"></script>
+	<script type="text/javascript">
+	    //添加商品
+		function addProduct() {
+			window.location.href = "/manager/products/add.jsp";
+		}
+		//删除商品
+		function p_del() {   
+			var msg = "您确定要删除该商品吗？";   
+			if (confirm(msg)==true){   
+			return true;   
+			}else{   
+			return false;   
+			}   
+		}   
+	</script>
+</HEAD>
+<body>
+	<br />
+	<form id="Form1" name="Form1"
+		action="/findProductByManyCondition"
+		method="post">
+		<table cellSpacing="1" cellPadding="0" width="100%" align="center" bgColor="#f5fafe" border="0">
+			<TBODY>
+				<tr>
+					<td class="ta_01" align="center" bgColor="#afd1f3">
+						<strong>查 询 条 件</strong>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<table cellpadding="0" cellspacing="0" border="0" width="100%">
+							<tr>
+								<td height="22" align="center" bgColor="#f5fafe" class="ta_01">商品编号</td>
+								<td class="ta_01" bgColor="#ffffff">
+									<input type="text" name="id" size="15" value="" id="Form1_userName" class="bg" />
+								</td>
+								<td height="22" align="center" bgColor="#f5fafe" class="ta_01">类别：</td>
+								<td class="ta_01" bgColor="#ffffff">
+								<select name="category" id="category">
+										<option value="" selected="selected">--选择商品类别--</option>
+										<option value="文学">文学</option>
+										<option value="生活">生活</option>
+										<option value="计算机">计算机</option>
+										<option value="外语">外语</option>
+										<option value="经营">经营</option>
+										<option value="励志">励志</option>
+										<option value="社科">社科</option>
+										<option value="学术">学术</option>
+										<option value="少儿">少儿</option>
+										<option value="艺术">艺术</option>
+										<option value="原版">原版</option>
+										<option value="科技">科技</option>
+										<option value="考试">考试</option>
+										<option value="生活百科">生活百科</option>
+								</select>
+								</td>
+							</tr>
+							<tr>
+								<td height="22" align="center" bgColor="#f5fafe" class="ta_01">商品名称：</td>
+								<td class="ta_01" bgColor="#ffffff">
+									<input type="text" name="name" size="15" value="" id="Form1_userName" class="bg" />
+								</td>
+								<td height="22" align="center" bgColor="#f5fafe" class="ta_01">价格区间(元)：</td>
+								<td class="ta_01" bgColor="#ffffff">
+									<input type="text" name="minprice" size="10" value="" />
+									- 
+									<input type="text" name="maxprice" size="10" value="" />
+								</td>
+							</tr>
+							<tr>
+								<td width="100" height="22" align="center" bgColor="#f5fafe" class="ta_01"></td>
+								<td class="ta_01" bgColor="#ffffff">
+									<font face="宋体" color="red"> &nbsp;</font>
+								</td>
+								<td align="right" bgColor="#ffffff" class="ta_01">
+									<br /><br />
+								</td>
+								<td align="right" bgColor="#ffffff" class="ta_01">
+									<button type="submit" id="search" name="search" value="&#26597;&#35810;" class="button_view">
+										&#26597;&#35810;
+									</button> 
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+									<input type="reset" name="reset" value="&#37325;&#32622;" class="button_view" />
+								</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+				<tr>
+					<td class="ta_01" align="center" bgColor="#afd1f3"><strong>商 品 列 表</strong>
+					</TD>
+				</tr>
+				<tr>
+					<td class="ta_01" align="right">
+						<button type="button" id="add" name="add" value="&#28155;&#21152;" class="button_add" onclick="addProduct()">
+							&#28155;&#21152;
+						</button>
+					</td>
+				</tr>
+				<tr>
+					<td class="ta_01" align="center" bgColor="#f5fafe">
+						<table cellspacing="0" cellpadding="1" rules="all"
+							bordercolor="gray" border="1" id="DataGrid1"
+							style="BORDER-RIGHT: gray 1px solid; BORDER-TOP: gray 1px solid; BORDER-LEFT: gray 1px solid; WIDTH: 100%; WORD-BREAK: break-all; BORDER-BOTTOM: gray 1px solid; BORDER-COLLAPSE: collapse; BACKGROUND-COLOR: #f5fafe; WORD-WRAP: break-word">
+							<tr style="FONT-WEIGHT: bold; FONT-SIZE: 12pt; HEIGHT: 25px; BACKGROUND-COLOR: #afd1f3">
+								<td align="center" width="24%">商品编号</td>
+								<td align="center" width="18%">商品名称</td>
+								<td align="center" width="9%">商品价格</td>
+								<td align="center" width="9%">商品数量</td>
+								<td width="8%" align="center">商品类别</td>
+								<td width="8%" align="center">编辑</td>
+								<td width="8%" align="center">删除</td>
+							</tr>
+                            <!--  循环输出所有商品 -->
+							
+								<tr onmouseover="this.style.backgroundColor = 'white'"
+									onmouseout="this.style.backgroundColor = '#F5FAFE';">
+									<td style="CURSOR: hand; HEIGHT: 22px" align="center" width="200">26ddd0c6-d7f2-4a83-b01b-286bb8c38420</td>
+									<td style="CURSOR: hand; HEIGHT: 22px" align="center" width="18%">.net设计规范</td>
+									<td style="CURSOR: hand; HEIGHT: 22px" align="center" width="8%">50.0</td>
+									<td style="CURSOR: hand; HEIGHT: 22px" align="center" width="8%">16</td>
+									<td style="CURSOR: hand; HEIGHT: 22px" align="center">计算机</td>
+									<td align="center" style="HEIGHT: 22px" width="7%">
+									    <a href="/findProductById?id=26ddd0c6-d7f2-4a83-b01b-286bb8c38420&type=admin">
+											<img src="/admin/images/i_edit.gif" border="0" style="CURSOR: hand"> 
+										</a>
+									</td>
+									<td align="center" style="HEIGHT: 22px" width="7%">
+										<a href="/deleteProduct?id=26ddd0c6-d7f2-4a83-b01b-286bb8c38420" onclick="javascript:return p_del()">
+												<img src="/admin/images/i_del.gif"
+												width="16" height="16" border="0" style="CURSOR: hand">
+										</a>
+									</td>
+								</tr>
+							
+								<tr onmouseover="this.style.backgroundColor = 'white'"
+									onmouseout="this.style.backgroundColor = '#F5FAFE';">
+									<td style="CURSOR: hand; HEIGHT: 22px" align="center" width="200">3a0196b2-71c1-4d4d-a4e8-d1f875096f00</td>
+									<td style="CURSOR: hand; HEIGHT: 22px" align="center" width="18%">网管员必备宝典</td>
+									<td style="CURSOR: hand; HEIGHT: 22px" align="center" width="8%">20.0</td>
+									<td style="CURSOR: hand; HEIGHT: 22px" align="center" width="8%">15</td>
+									<td style="CURSOR: hand; HEIGHT: 22px" align="center">计算机</td>
+									<td align="center" style="HEIGHT: 22px" width="7%">
+									    <a href="/findProductById?id=3a0196b2-71c1-4d4d-a4e8-d1f875096f00&type=admin">
+											<img src="/admin/images/i_edit.gif" border="0" style="CURSOR: hand"> 
+										</a>
+									</td>
+									<td align="center" style="HEIGHT: 22px" width="7%">
+										<a href="/deleteProduct?id=3a0196b2-71c1-4d4d-a4e8-d1f875096f00" onclick="javascript:return p_del()">
+												<img src="/admin/images/i_del.gif"
+												width="16" height="16" border="0" style="CURSOR: hand">
+										</a>
+									</td>
+								</tr>
+							
+								<tr onmouseover="this.style.backgroundColor = 'white'"
+									onmouseout="this.style.backgroundColor = '#F5FAFE';">
+									<td style="CURSOR: hand; HEIGHT: 22px" align="center" width="200">3cdd01d2-95d4-4077-b512-ff4c3b340d6b</td>
+									<td style="CURSOR: hand; HEIGHT: 22px" align="center" width="18%">学会宽容</td>
+									<td style="CURSOR: hand; HEIGHT: 22px" align="center" width="8%">25.0</td>
+									<td style="CURSOR: hand; HEIGHT: 22px" align="center" width="8%">5</td>
+									<td style="CURSOR: hand; HEIGHT: 22px" align="center">文学</td>
+									<td align="center" style="HEIGHT: 22px" width="7%">
+									    <a href="/findProductById?id=3cdd01d2-95d4-4077-b512-ff4c3b340d6b&type=admin">
+											<img src="/admin/images/i_edit.gif" border="0" style="CURSOR: hand"> 
+										</a>
+									</td>
+									<td align="center" style="HEIGHT: 22px" width="7%">
+										<a href="/deleteProduct?id=3cdd01d2-95d4-4077-b512-ff4c3b340d6b" onclick="javascript:return p_del()">
+												<img src="/admin/images/i_del.gif"
+												width="16" height="16" border="0" style="CURSOR: hand">
+										</a>
+									</td>
+								</tr>
+							
+								<tr onmouseover="this.style.backgroundColor = 'white'"
+									onmouseout="this.style.backgroundColor = '#F5FAFE';">
+									<td style="CURSOR: hand; HEIGHT: 22px" align="center" width="200">4dbac6bb-ac2a-4ea0-a62f-ea5a2fc2b3c2</td>
+									<td style="CURSOR: hand; HEIGHT: 22px" align="center" width="18%">杜拉拉升职记</td>
+									<td style="CURSOR: hand; HEIGHT: 22px" align="center" width="8%">54.0</td>
+									<td style="CURSOR: hand; HEIGHT: 22px" align="center" width="8%">198</td>
+									<td style="CURSOR: hand; HEIGHT: 22px" align="center">原版</td>
+									<td align="center" style="HEIGHT: 22px" width="7%">
+									    <a href="/findProductById?id=4dbac6bb-ac2a-4ea0-a62f-ea5a2fc2b3c2&type=admin">
+											<img src="/admin/images/i_edit.gif" border="0" style="CURSOR: hand"> 
+										</a>
+									</td>
+									<td align="center" style="HEIGHT: 22px" width="7%">
+										<a href="/deleteProduct?id=4dbac6bb-ac2a-4ea0-a62f-ea5a2fc2b3c2" onclick="javascript:return p_del()">
+												<img src="/admin/images/i_del.gif"
+												width="16" height="16" border="0" style="CURSOR: hand">
+										</a>
+									</td>
+								</tr>
+							
+								<tr onmouseover="this.style.backgroundColor = 'white'"
+									onmouseout="this.style.backgroundColor = '#F5FAFE';">
+									<td style="CURSOR: hand; HEIGHT: 22px" align="center" width="200">67a44950-935a-4dac-953d-515fd92d8174</td>
+									<td style="CURSOR: hand; HEIGHT: 22px" align="center" width="18%">时空穿行</td>
+									<td style="CURSOR: hand; HEIGHT: 22px" align="center" width="8%">42.0</td>
+									<td style="CURSOR: hand; HEIGHT: 22px" align="center" width="8%">200</td>
+									<td style="CURSOR: hand; HEIGHT: 22px" align="center">科技</td>
+									<td align="center" style="HEIGHT: 22px" width="7%">
+									    <a href="/findProductById?id=67a44950-935a-4dac-953d-515fd92d8174&type=admin">
+											<img src="/admin/images/i_edit.gif" border="0" style="CURSOR: hand"> 
+										</a>
+									</td>
+									<td align="center" style="HEIGHT: 22px" width="7%">
+										<a href="/deleteProduct?id=67a44950-935a-4dac-953d-515fd92d8174" onclick="javascript:return p_del()">
+												<img src="/admin/images/i_del.gif"
+												width="16" height="16" border="0" style="CURSOR: hand">
+										</a>
+									</td>
+								</tr>
+							
+								<tr onmouseover="this.style.backgroundColor = 'white'"
+									onmouseout="this.style.backgroundColor = '#F5FAFE';">
+									<td style="CURSOR: hand; HEIGHT: 22px" align="center" width="200">72c52302-cd1e-4a22-8ac8-dc300a915be5</td>
+									<td style="CURSOR: hand; HEIGHT: 22px" align="center" width="18%">培育男孩</td>
+									<td style="CURSOR: hand; HEIGHT: 22px" align="center" width="8%">59.0</td>
+									<td style="CURSOR: hand; HEIGHT: 22px" align="center" width="8%">94</td>
+									<td style="CURSOR: hand; HEIGHT: 22px" align="center">社科</td>
+									<td align="center" style="HEIGHT: 22px" width="7%">
+									    <a href="/findProductById?id=72c52302-cd1e-4a22-8ac8-dc300a915be5&type=admin">
+											<img src="/admin/images/i_edit.gif" border="0" style="CURSOR: hand"> 
+										</a>
+									</td>
+									<td align="center" style="HEIGHT: 22px" width="7%">
+										<a href="/deleteProduct?id=72c52302-cd1e-4a22-8ac8-dc300a915be5" onclick="javascript:return p_del()">
+												<img src="/admin/images/i_del.gif"
+												width="16" height="16" border="0" style="CURSOR: hand">
+										</a>
+									</td>
+								</tr>
+							
+								<tr onmouseover="this.style.backgroundColor = 'white'"
+									onmouseout="this.style.backgroundColor = '#F5FAFE';">
+									<td style="CURSOR: hand; HEIGHT: 22px" align="center" width="200">79bbe618-d2f8-4081-b35a-62ebbe938b64</td>
+									<td style="CURSOR: hand; HEIGHT: 22px" align="center" width="18%">Java基础入门</td>
+									<td style="CURSOR: hand; HEIGHT: 22px" align="center" width="8%">44.5</td>
+									<td style="CURSOR: hand; HEIGHT: 22px" align="center" width="8%">7</td>
+									<td style="CURSOR: hand; HEIGHT: 22px" align="center">计算机</td>
+									<td align="center" style="HEIGHT: 22px" width="7%">
+									    <a href="/findProductById?id=79bbe618-d2f8-4081-b35a-62ebbe938b64&type=admin">
+											<img src="/admin/images/i_edit.gif" border="0" style="CURSOR: hand"> 
+										</a>
+									</td>
+									<td align="center" style="HEIGHT: 22px" width="7%">
+										<a href="/deleteProduct?id=79bbe618-d2f8-4081-b35a-62ebbe938b64" onclick="javascript:return p_del()">
+												<img src="/admin/images/i_del.gif"
+												width="16" height="16" border="0" style="CURSOR: hand">
+										</a>
+									</td>
+								</tr>
+							
+								<tr onmouseover="this.style.backgroundColor = 'white'"
+									onmouseout="this.style.backgroundColor = '#F5FAFE';">
+									<td style="CURSOR: hand; HEIGHT: 22px" align="center" width="200">84c842da-16b6-4e87-953e-859a1ca62bab</td>
+									<td style="CURSOR: hand; HEIGHT: 22px" align="center" width="18%">赢在影响力</td>
+									<td style="CURSOR: hand; HEIGHT: 22px" align="center" width="8%">89.0</td>
+									<td style="CURSOR: hand; HEIGHT: 22px" align="center" width="8%">47</td>
+									<td style="CURSOR: hand; HEIGHT: 22px" align="center">励志</td>
+									<td align="center" style="HEIGHT: 22px" width="7%">
+									    <a href="/findProductById?id=84c842da-16b6-4e87-953e-859a1ca62bab&type=admin">
+											<img src="/admin/images/i_edit.gif" border="0" style="CURSOR: hand"> 
+										</a>
+									</td>
+									<td align="center" style="HEIGHT: 22px" width="7%">
+										<a href="/deleteProduct?id=84c842da-16b6-4e87-953e-859a1ca62bab" onclick="javascript:return p_del()">
+												<img src="/admin/images/i_del.gif"
+												width="16" height="16" border="0" style="CURSOR: hand">
+										</a>
+									</td>
+								</tr>
+							
+								<tr onmouseover="this.style.backgroundColor = 'white'"
+									onmouseout="this.style.backgroundColor = '#F5FAFE';">
+									<td style="CURSOR: hand; HEIGHT: 22px" align="center" width="200">8740bee0-bfb8-4ba1-8f6e-b69310617db9</td>
+									<td style="CURSOR: hand; HEIGHT: 22px" align="center" width="18%">大勇和小花的欧洲日记</td>
+									<td style="CURSOR: hand; HEIGHT: 22px" align="center" width="8%">26.0</td>
+									<td style="CURSOR: hand; HEIGHT: 22px" align="center" width="8%">100</td>
+									<td style="CURSOR: hand; HEIGHT: 22px" align="center">生活百科</td>
+									<td align="center" style="HEIGHT: 22px" width="7%">
+									    <a href="/findProductById?id=8740bee0-bfb8-4ba1-8f6e-b69310617db9&type=admin">
+											<img src="/admin/images/i_edit.gif" border="0" style="CURSOR: hand"> 
+										</a>
+									</td>
+									<td align="center" style="HEIGHT: 22px" width="7%">
+										<a href="/deleteProduct?id=8740bee0-bfb8-4ba1-8f6e-b69310617db9" onclick="javascript:return p_del()">
+												<img src="/admin/images/i_del.gif"
+												width="16" height="16" border="0" style="CURSOR: hand">
+										</a>
+									</td>
+								</tr>
+							
+								<tr onmouseover="this.style.backgroundColor = 'white'"
+									onmouseout="this.style.backgroundColor = '#F5FAFE';">
+									<td style="CURSOR: hand; HEIGHT: 22px" align="center" width="200">880fdb00-6798-4302-962b-f337f3393802</td>
+									<td style="CURSOR: hand; HEIGHT: 22px" align="center" width="18%">Java Web程序开发入门</td>
+									<td style="CURSOR: hand; HEIGHT: 22px" align="center" width="8%">44.5</td>
+									<td style="CURSOR: hand; HEIGHT: 22px" align="center" width="8%">100</td>
+									<td style="CURSOR: hand; HEIGHT: 22px" align="center">计算机</td>
+									<td align="center" style="HEIGHT: 22px" width="7%">
+									    <a href="/findProductById?id=880fdb00-6798-4302-962b-f337f3393802&type=admin">
+											<img src="/admin/images/i_edit.gif" border="0" style="CURSOR: hand"> 
+										</a>
+									</td>
+									<td align="center" style="HEIGHT: 22px" width="7%">
+										<a href="/deleteProduct?id=880fdb00-6798-4302-962b-f337f3393802" onclick="javascript:return p_del()">
+												<img src="/admin/images/i_del.gif"
+												width="16" height="16" border="0" style="CURSOR: hand">
+										</a>
+									</td>
+								</tr>
+							
+								<tr onmouseover="this.style.backgroundColor = 'white'"
+									onmouseout="this.style.backgroundColor = '#F5FAFE';">
+									<td style="CURSOR: hand; HEIGHT: 22px" align="center" width="200">8c19d2e2-1020-425d-aeeb-56d3c1bc0a81</td>
+									<td style="CURSOR: hand; HEIGHT: 22px" align="center" width="18%">谁动了我的奶酪</td>
+									<td style="CURSOR: hand; HEIGHT: 22px" align="center" width="8%">26.0</td>
+									<td style="CURSOR: hand; HEIGHT: 22px" align="center" width="8%">200</td>
+									<td style="CURSOR: hand; HEIGHT: 22px" align="center">少儿</td>
+									<td align="center" style="HEIGHT: 22px" width="7%">
+									    <a href="/findProductById?id=8c19d2e2-1020-425d-aeeb-56d3c1bc0a81&type=admin">
+											<img src="/admin/images/i_edit.gif" border="0" style="CURSOR: hand"> 
+										</a>
+									</td>
+									<td align="center" style="HEIGHT: 22px" width="7%">
+										<a href="/deleteProduct?id=8c19d2e2-1020-425d-aeeb-56d3c1bc0a81" onclick="javascript:return p_del()">
+												<img src="/admin/images/i_del.gif"
+												width="16" height="16" border="0" style="CURSOR: hand">
+										</a>
+									</td>
+								</tr>
+							
+								<tr onmouseover="this.style.backgroundColor = 'white'"
+									onmouseout="this.style.backgroundColor = '#F5FAFE';">
+									<td style="CURSOR: hand; HEIGHT: 22px" align="center" width="200">968df3a0-be4d-473e-85a8-d3466b4ca7c2</td>
+									<td style="CURSOR: hand; HEIGHT: 22px" align="center" width="18%">别做正常的傻瓜</td>
+									<td style="CURSOR: hand; HEIGHT: 22px" align="center" width="8%">18.0</td>
+									<td style="CURSOR: hand; HEIGHT: 22px" align="center" width="8%">2</td>
+									<td style="CURSOR: hand; HEIGHT: 22px" align="center">励志</td>
+									<td align="center" style="HEIGHT: 22px" width="7%">
+									    <a href="/findProductById?id=968df3a0-be4d-473e-85a8-d3466b4ca7c2&type=admin">
+											<img src="/admin/images/i_edit.gif" border="0" style="CURSOR: hand"> 
+										</a>
+									</td>
+									<td align="center" style="HEIGHT: 22px" width="7%">
+										<a href="/deleteProduct?id=968df3a0-be4d-473e-85a8-d3466b4ca7c2" onclick="javascript:return p_del()">
+												<img src="/admin/images/i_del.gif"
+												width="16" height="16" border="0" style="CURSOR: hand">
+										</a>
+									</td>
+								</tr>
+							
+								<tr onmouseover="this.style.backgroundColor = 'white'"
+									onmouseout="this.style.backgroundColor = '#F5FAFE';">
+									<td style="CURSOR: hand; HEIGHT: 22px" align="center" width="200">9a7af97e-deea-417e-ad66-23ea755d2a51</td>
+									<td style="CURSOR: hand; HEIGHT: 22px" align="center" width="18%">培育男孩</td>
+									<td style="CURSOR: hand; HEIGHT: 22px" align="center" width="8%">25.0</td>
+									<td style="CURSOR: hand; HEIGHT: 22px" align="center" width="8%">8</td>
+									<td style="CURSOR: hand; HEIGHT: 22px" align="center">生活</td>
+									<td align="center" style="HEIGHT: 22px" width="7%">
+									    <a href="/findProductById?id=9a7af97e-deea-417e-ad66-23ea755d2a51&type=admin">
+											<img src="/admin/images/i_edit.gif" border="0" style="CURSOR: hand"> 
+										</a>
+									</td>
+									<td align="center" style="HEIGHT: 22px" width="7%">
+										<a href="/deleteProduct?id=9a7af97e-deea-417e-ad66-23ea755d2a51" onclick="javascript:return p_del()">
+												<img src="/admin/images/i_del.gif"
+												width="16" height="16" border="0" style="CURSOR: hand">
+										</a>
+									</td>
+								</tr>
+							
+								<tr onmouseover="this.style.backgroundColor = 'white'"
+									onmouseout="this.style.backgroundColor = '#F5FAFE';">
+									<td style="CURSOR: hand; HEIGHT: 22px" align="center" width="200">adc06981-0dc9-4006-b763-e6413ee93ac1</td>
+									<td style="CURSOR: hand; HEIGHT: 22px" align="center" width="18%">travelbook</td>
+									<td style="CURSOR: hand; HEIGHT: 22px" align="center" width="8%">20.0</td>
+									<td style="CURSOR: hand; HEIGHT: 22px" align="center" width="8%">20</td>
+									<td style="CURSOR: hand; HEIGHT: 22px" align="center">外语</td>
+									<td align="center" style="HEIGHT: 22px" width="7%">
+									    <a href="/findProductById?id=adc06981-0dc9-4006-b763-e6413ee93ac1&type=admin">
+											<img src="/admin/images/i_edit.gif" border="0" style="CURSOR: hand"> 
+										</a>
+									</td>
+									<td align="center" style="HEIGHT: 22px" width="7%">
+										<a href="/deleteProduct?id=adc06981-0dc9-4006-b763-e6413ee93ac1" onclick="javascript:return p_del()">
+												<img src="/admin/images/i_del.gif"
+												width="16" height="16" border="0" style="CURSOR: hand">
+										</a>
+									</td>
+								</tr>
+							
+								<tr onmouseover="this.style.backgroundColor = 'white'"
+									onmouseout="this.style.backgroundColor = '#F5FAFE';">
+									<td style="CURSOR: hand; HEIGHT: 22px" align="center" width="200">bdb32537-8f2c-4ba2-a752-94fdc0e9a250</td>
+									<td style="CURSOR: hand; HEIGHT: 22px" align="center" width="18%">经济案例解析</td>
+									<td style="CURSOR: hand; HEIGHT: 22px" align="center" width="8%">35.0</td>
+									<td style="CURSOR: hand; HEIGHT: 22px" align="center" width="8%">98</td>
+									<td style="CURSOR: hand; HEIGHT: 22px" align="center">经营</td>
+									<td align="center" style="HEIGHT: 22px" width="7%">
+									    <a href="/findProductById?id=bdb32537-8f2c-4ba2-a752-94fdc0e9a250&type=admin">
+											<img src="/admin/images/i_edit.gif" border="0" style="CURSOR: hand"> 
+										</a>
+									</td>
+									<td align="center" style="HEIGHT: 22px" width="7%">
+										<a href="/deleteProduct?id=bdb32537-8f2c-4ba2-a752-94fdc0e9a250" onclick="javascript:return p_del()">
+												<img src="/admin/images/i_del.gif"
+												width="16" height="16" border="0" style="CURSOR: hand">
+										</a>
+									</td>
+								</tr>
+							
+								<tr onmouseover="this.style.backgroundColor = 'white'"
+									onmouseout="this.style.backgroundColor = '#F5FAFE';">
+									<td style="CURSOR: hand; HEIGHT: 22px" align="center" width="200">bf66a00c-4a78-458b-93c8-08896ee14976</td>
+									<td style="CURSOR: hand; HEIGHT: 22px" align="center" width="18%">美国纽约摄影学院摄影教材</td>
+									<td style="CURSOR: hand; HEIGHT: 22px" align="center" width="8%">45.0</td>
+									<td style="CURSOR: hand; HEIGHT: 22px" align="center" width="8%">99</td>
+									<td style="CURSOR: hand; HEIGHT: 22px" align="center">艺术</td>
+									<td align="center" style="HEIGHT: 22px" width="7%">
+									    <a href="/findProductById?id=bf66a00c-4a78-458b-93c8-08896ee14976&type=admin">
+											<img src="/admin/images/i_edit.gif" border="0" style="CURSOR: hand"> 
+										</a>
+									</td>
+									<td align="center" style="HEIGHT: 22px" width="7%">
+										<a href="/deleteProduct?id=bf66a00c-4a78-458b-93c8-08896ee14976" onclick="javascript:return p_del()">
+												<img src="/admin/images/i_del.gif"
+												width="16" height="16" border="0" style="CURSOR: hand">
+										</a>
+									</td>
+								</tr>
+							
+								<tr onmouseover="this.style.backgroundColor = 'white'"
+									onmouseout="this.style.backgroundColor = '#F5FAFE';">
+									<td style="CURSOR: hand; HEIGHT: 22px" align="center" width="200">c85d68d3-5758-494e-8dcf-f4f84d852949</td>
+									<td style="CURSOR: hand; HEIGHT: 22px" align="center" width="18%">系统分析师教程</td>
+									<td style="CURSOR: hand; HEIGHT: 22px" align="center" width="8%">54.0</td>
+									<td style="CURSOR: hand; HEIGHT: 22px" align="center" width="8%">300</td>
+									<td style="CURSOR: hand; HEIGHT: 22px" align="center">考试</td>
+									<td align="center" style="HEIGHT: 22px" width="7%">
+									    <a href="/findProductById?id=c85d68d3-5758-494e-8dcf-f4f84d852949&type=admin">
+											<img src="/admin/images/i_edit.gif" border="0" style="CURSOR: hand"> 
+										</a>
+									</td>
+									<td align="center" style="HEIGHT: 22px" width="7%">
+										<a href="/deleteProduct?id=c85d68d3-5758-494e-8dcf-f4f84d852949" onclick="javascript:return p_del()">
+												<img src="/admin/images/i_del.gif"
+												width="16" height="16" border="0" style="CURSOR: hand">
+										</a>
+									</td>
+								</tr>
+							
+								<tr onmouseover="this.style.backgroundColor = 'white'"
+									onmouseout="this.style.backgroundColor = '#F5FAFE';">
+									<td style="CURSOR: hand; HEIGHT: 22px" align="center" width="200">cb22386f-0b77-454c-976f-d6417ad72613</td>
+									<td style="CURSOR: hand; HEIGHT: 22px" align="center" width="18%">中国国家地理</td>
+									<td style="CURSOR: hand; HEIGHT: 22px" align="center" width="8%">20.0</td>
+									<td style="CURSOR: hand; HEIGHT: 22px" align="center" width="8%">20</td>
+									<td style="CURSOR: hand; HEIGHT: 22px" align="center">学术</td>
+									<td align="center" style="HEIGHT: 22px" width="7%">
+									    <a href="/findProductById?id=cb22386f-0b77-454c-976f-d6417ad72613&type=admin">
+											<img src="/admin/images/i_edit.gif" border="0" style="CURSOR: hand"> 
+										</a>
+									</td>
+									<td align="center" style="HEIGHT: 22px" width="7%">
+										<a href="/deleteProduct?id=cb22386f-0b77-454c-976f-d6417ad72613" onclick="javascript:return p_del()">
+												<img src="/admin/images/i_del.gif"
+												width="16" height="16" border="0" style="CURSOR: hand">
+										</a>
+									</td>
+								</tr>
+							
+						</table>
+					</td>
+				</tr>
+			</TBODY>
+		</table>
+	</form>
+</body>
+</HTML>

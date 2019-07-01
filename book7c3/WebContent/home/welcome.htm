@@ -1,0 +1,88 @@
+<html><head>
+	<meta http-equiv="Content-Language" content="zh-cn">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link href="css/Style.css" rel="stylesheet" type="text/css">
+	<script language="javascript" src="js/public.js"></script>
+	<script type="text/javascript">
+		function addNotice() {
+			//window.location.href = "/admin/notices/add.jsp";
+		}
+	</script>
+</head>
+<body>
+	<br>
+	<form id="Form1" name="Form1" action="" method="post">
+		<table width="100%" cellspacing="1" cellpadding="0" border="0" bgcolor="#f5fafe" align="center">
+			<tbody>
+				<tr>
+					<td class="ta_01" bgcolor="#afd1f3" align="center">
+					    <strong>公 告 列 表</strong>
+					</td>
+				</tr>
+				<tr>
+					<td class="ta_01" align="right">
+						<button type="button" id="add" name="add" value="添加" class="button_add" onclick="addNotice()">
+							添加
+						</button>
+					</td>
+				</tr>
+				<tr>
+					<td class="ta_01" bgcolor="#f5fafe" align="center">
+						<table rules="all" id="DataGrid1" style="BORDER-RIGHT: gray 1px solid; BORDER-TOP: gray 1px solid; BORDER-LEFT: gray 1px solid; WIDTH: 100%; WORD-BREAK: break-all; BORDER-BOTTOM: gray 1px solid; BORDER-COLLAPSE: collapse; BACKGROUND-COLOR: #f5fafe; WORD-WRAP: break-word" cellspacing="0" cellpadding="1" bordercolor="gray" border="1">
+							<tbody><tr style="FONT-WEIGHT: bold; FONT-SIZE: 12pt; HEIGHT: 25px; BACKGROUND-COLOR: #afd1f3">
+								<td width="12%" align="center">公告编号</td>
+								<td width="12%" align="center">公告标题</td>
+								<td width="24%" align="center">公告内容</td>
+								<td width="8%" align="center">时间</td>
+								<td width="8%" align="center">编辑</td>
+								<td width="8%" align="center">删除</td>
+							</tr>
+							
+								<tr onmouseover="this.style.backgroundColor = 'white'" onmouseout="this.style.backgroundColor = '#F5FAFE';" style="background-color: rgb(245, 250, 254);">
+									<td style="CURSOR: hand; HEIGHT: 22px" width="23" align="center">1</td>
+									<td style="CURSOR: hand; HEIGHT: 22px" width="18%" align="center">暂停当日达业务</td>
+									<td style="CURSOR: hand; HEIGHT: 22px" width="8%" align="center">尊敬的网上书城用户， 　　<br>
+　　为了让大家有更好的购物体验，3月25日起，当日达业务关小黑屋回炉升级！<br>具体开放时间请留意公告，感谢大家的支持与理解，祝大家购物愉快！<br>
+3月23日<br>
+传习教育 网上书城系统管理部<br></td>
+									<td style="CURSOR: hand; HEIGHT: 22px" width="8%" align="center">20160111113420</td>
+									<td style="HEIGHT: 22px" width="7%" align="center">
+										<a href="http://localhost:8080/store/manager/FindByIdNoticeServlet?id=1">
+											<img src="img/i_edit.gif" style="CURSOR: hand" border="0"> 
+										</a>
+									</td>
+									<td style="HEIGHT: 22px" width="7%" align="center">
+										<a href="http://localhost:8080/store/manager/DeleteNoticeServlet?id=1">
+											<img src="img/i_del.gif" style="CURSOR: hand" width="16" height="16" border="0">
+										</a>
+									</td>
+								</tr>
+							
+								<tr onmouseover="this.style.backgroundColor = 'white'" onmouseout="this.style.backgroundColor = '#F5FAFE';" style="background-color: rgb(245, 250, 254);">
+									<td style="CURSOR: hand; HEIGHT: 22px" width="23" align="center">2</td>
+									<td style="CURSOR: hand; HEIGHT: 22px" width="18%" align="center">年货礼包兑换时间通知</td>
+									<td style="CURSOR: hand; HEIGHT: 22px" width="8%" align="center">尊敬的网上书城用户：
+    非常抱歉，因为年后部分供应商工厂开工较晚，导致个别商品到货延迟。
+    基于此，15年年货礼包的兑换入口会延期到3月17日，请您在有效期内完成兑换。
+    以下礼包预计本周四，即3月12日到货。造成不便深表歉意，敬请谅解。</td>
+									<td style="CURSOR: hand; HEIGHT: 22px" width="8%" align="center">20160111113411</td>
+									<td style="HEIGHT: 22px" width="7%" align="center">
+										<a href="http://localhost:8080/store/manager/FindByIdNoticeServlet?id=2">
+											<img src="img/i_edit.gif" style="CURSOR: hand" border="0"> 
+										</a>
+									</td>
+									<td style="HEIGHT: 22px" width="7%" align="center">
+										<a href="http://localhost:8080/store/manager/DeleteNoticeServlet?id=2">
+											<img src="img/i_del.gif" style="CURSOR: hand" width="16" height="16" border="0">
+										</a>
+									</td>
+								</tr>
+							
+						</tbody></table>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</form>
+
+</body></html>
